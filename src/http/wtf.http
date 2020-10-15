@@ -1,0 +1,37 @@
+# WTF API
+
+###
+# baseURL
+@baseURL = http://localhost:3000/wtf
+
+###
+# Random acronyms of given number
+GET {{baseURL}}/acronym/test
+
+###
+# Random acronyms of given number
+GET {{baseURL}}/random/12
+
+
+###
+# Add new acronym
+POST {{baseURL}}/acronym
+Content-Type: application/json
+
+{
+  "acronym"   : "test",
+	"definition": "qwer1234"
+}
+
+###
+# Update definition of given acronym
+PUT {{baseURL}}/acronym/test
+Content-Type: application/json
+
+{
+	"definition": "updateTest"
+}
+
+###
+# Update definition of given acronym
+DELETE  {{baseURL}}/acronym/test
