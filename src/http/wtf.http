@@ -4,13 +4,20 @@
 # baseURL
 @baseURL = http://localhost:3000/wtf
 
+
 ###
 # Random acronyms of given number
 GET {{baseURL}}/acronym/test
 
+
 ###
 # Random acronyms of given number
 GET {{baseURL}}/random/12
+
+
+###
+# Search acronyms with pagination query
+GET {{baseURL}}/acronym?from=340&limit=10&search=A
 
 
 ###
@@ -23,6 +30,7 @@ Content-Type: application/json
 	"definition": "qwer1234"
 }
 
+
 ###
 # Update definition of given acronym
 PUT {{baseURL}}/acronym/test
@@ -31,6 +39,7 @@ Content-Type: application/json
 {
 	"definition": "updateTest"
 }
+
 
 ###
 # Update definition of given acronym

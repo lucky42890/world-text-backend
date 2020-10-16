@@ -1,8 +1,6 @@
 import { Router } from 'express';
 import WTFController from '../controllers/wtf.controller';
-import { CreateUserDto } from '../dtos/users.dto';
 import Route from '../interfaces/route.interface';
-import validationMiddleware from '../middlewares/validation.middleware';
 
 class WTFRoute implements Route {
   public path = '/wtf';
