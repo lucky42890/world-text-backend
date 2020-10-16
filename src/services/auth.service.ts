@@ -4,7 +4,7 @@ import { DataStoredInToken } from '../interfaces/auth.interface';
 class AuthService {
 
   public createToken(acronym: string): string {
-    const dataStoredInToken: DataStoredInToken = { acronym: acronym };
+    const dataStoredInToken: DataStoredInToken = { acronym };
     const secret: string = process.env.JWT_SECRET;
     const expiresIn: number = 60 * 60;
 

@@ -51,7 +51,7 @@ class WTFService {
     const more = numberRows[Object.keys(numberRows)[0]] > (from + limit) ? true : false;
     return {
       list,
-      more
+      more,
     };
   }
 }
