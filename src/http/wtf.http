@@ -27,7 +27,7 @@ GET {{baseURL}}/random/12
 # Search acronyms with pagination query
 
 # GET {{baseURL}}/wtf/acronym?from=340&limit=10&search=A
-GET {{baseURL}}/acronym?from=20&limit=10&search=A
+GET {{baseURL}}/acronym?from=350&limit=10&search=A
 
 
 ###
@@ -49,7 +49,7 @@ Content-Type: application/json
 # PUT {{baseURL}}/wtf/acronym/10X
 PUT {{baseURL}}/acronym/qwer1
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3JvbnltIjoicXdlcjEiLCJpYXQiOjE2MDI4MzgwOTYsImV4cCI6MTYwMjg0MTY5Nn0.uiflXxw8dd2bDnCOoUN4LHy5ImgaQcDIGh_FvlTX68I
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3JvbnltIjoicXdlcjEiLCJpYXQiOjE2MDI4NzQ5MjUsImV4cCI6MTYwMjg3ODUyNX0.-oElnHlizVb2qG-_3xwJneC-IEiTpkwdXgWz8mzdpt8
 
 {
 	"definition": "Update testing"
@@ -61,4 +61,4 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3JvbnltIjoicXdlcjEiLCJp
 
 # DELETE  {{baseURL}}/wtf/acronym/test
 DELETE  {{baseURL}}/acronym/qwer1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3JvbnltIjoicXdlcjEiLCJpYXQiOjE2MDI4MzgwOTYsImV4cCI6MTYwMjg0MTY5Nn0.uiflXxw8dd2bDnCOoUN4LHy5ImgaQcDIGh_FvlTX68I
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3JvbnltIjoicXdlcjEiLCJpYXQiOjE2MDI4NzQ5MjUsImV4cCI6MTYwMjg3ODUyNX0.-oElnHlizVb2qG-_3xwJneC-IEiTpkwdXgWz8mzdpt8
