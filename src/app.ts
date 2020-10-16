@@ -1,8 +1,6 @@
 import * as cookieParser from 'cookie-parser';
 import * as cors from 'cors';
 import * as express from 'express';
-import helmet from 'helmet';
-import * as hpp from 'hpp';
 import * as logger from 'morgan';
 import Route from './interfaces/route.interface';
 import errorMiddleware from './middlewares/error.middleware';
@@ -53,8 +51,6 @@ class App {
   private initializeMiddlewares() {
     if (this.env) {
       // For production mode
-      this.app.use(hpp());
-      this.app.use(helmet());
       this.app.use(logger('combined'));
       this.app.use(cors({ origin: 'your.domain.com', credentials: true }));
     } else {
