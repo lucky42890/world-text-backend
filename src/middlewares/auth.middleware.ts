@@ -24,7 +24,7 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction) =
       next(new HttpException(401, 'Wrong authentication token'));
     }
   } else {
-    next(new HttpException(404, 'Authentication token missing'));
+    next(new HttpException(401, 'Authentication token missing'));
   }
 };
 

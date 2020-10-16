@@ -17,7 +17,8 @@ class WTFController {
       const result = await this.wtfService.getAcronym(acronym);
 
       if (!result) {
-        res.status(200).json({ message: 'Not found acronym!' });
+        res.status(404).json({ message: 'Not found acronym!' });
+        return;
       }
       res.status(200).json(result);
 
@@ -36,6 +37,11 @@ class WTFController {
     try {
       const { from = '0', limit = '10', search = '' } = (req.query as any);
       const result = await this.wtfService.searchAcronym(parseInt(from, 10), parseInt(limit, 10), search);
+
+      res.set({
+        moreAcronyms: result.list || false,
+      });
+
       res.status(200).json(result);
 
     } catch (error) {
@@ -73,8 +79,10 @@ class WTFController {
 
       if (!data.acronym || !data.definition) {
         res.status(400).json({ message: 'The requested data is not correct!' });
+        return;
       }
-      const result = await this.wtfService.addNewAcronym(data);
+
+      await this.wtfService.addNewAcronym(data);
       res.status(201).json({ ...data });
 
     } catch (error) {
@@ -93,6 +101,7 @@ class WTFController {
 
       if (!req.body || !req.body.definition) {
         res.status(400).json({ message: 'The requested data is not correct!' });
+        return;
       }
 
       const data: WTF = { acronym: '', definition: '' };
