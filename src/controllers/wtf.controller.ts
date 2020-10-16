@@ -39,7 +39,7 @@ class WTFController {
       const result = await this.wtfService.searchAcronym(parseInt(from, 10), parseInt(limit, 10), search);
 
       res.set({
-        moreAcronyms: result.list || false,
+        moreAcronyms: result.more || false,
       });
 
       res.status(200).json(result);
