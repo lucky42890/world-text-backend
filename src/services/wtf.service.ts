@@ -19,7 +19,7 @@ class WTFService {
       },
       [],
     );
-    return await db.all(`SELECT * FROM wtf WHERE id IN (${numList.toString()})`);
+    return await db.all(`SELECT acronym, definition FROM wtf WHERE id IN (${numList.toString()})`);
   }
 
   public async addNewAcronym(data: WTF): Promise<WTF> {
@@ -47,7 +47,14 @@ class WTFService {
 
   public async searchAcronym(from: number, limit: number, search: string): Promise<any> {
     const numberRows = await db.get(`SELECT count(1) FROM wtf WHERE acronym LIKE '%${search}%'`);
-    const list = await db.all(`SELECT * FROM wtf WHERE acronym LIKE '%${search}%' LIMIT ${limit} OFFSET ${from}`);
+
+    let list;
+    if (!search) {
+      list = await db.all(`SELECT acronym, definition FROM wtf WHERE LIMIT ${limit} OFFSET ${from}`);
+    } else {
+      list = await db.all(`SELECT acronym, definition FROM wtf WHERE acronym LIKE '%${search}%' LIMIT ${limit} OFFSET ${from}`);
+    }
+
     const more = numberRows[Object.keys(numberRows)[0]] > (from + limit) ? true : false;
     return {
       list,

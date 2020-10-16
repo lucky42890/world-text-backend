@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { WTF } from '../interfaces/wtf.interface';
 import WTFService from '../services/wtf.service';
-import { db } from '../db/database';
 
 class WTFController {
   public wtfService = new WTFService();
@@ -36,11 +35,6 @@ class WTFController {
   public searchAcronym = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { from = '0', limit = '10', search = '' } = (req.query as any);
-
-      if (!search) {
-        res.status(400).json({ message: 'The search parameter is not correct!' });
-      }
-
       const result = await this.wtfService.searchAcronym(parseInt(from, 10), parseInt(limit, 10), search);
       res.status(200).json(result);
 
@@ -81,7 +75,7 @@ class WTFController {
         res.status(400).json({ message: 'The requested data is not correct!' });
       }
       const result = await this.wtfService.addNewAcronym(data);
-      res.status(201).json(result);
+      res.status(201).json({ ...data });
 
     } catch (error) {
       next(error);

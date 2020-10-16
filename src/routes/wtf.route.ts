@@ -4,7 +4,8 @@ import Route from '../interfaces/route.interface';
 import authMiddleware from '../middlewares/auth.middleware';
 
 class WTFRoute implements Route {
-  public path = '/wtf';
+  public path = '';   // As to project requirement
+  // public path = '/wtf';
   public router = Router();
   public wtfController = new WTFController();
 
