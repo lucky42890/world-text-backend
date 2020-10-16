@@ -106,7 +106,7 @@ class WTFController {
       data.definition = req.body.definition;
 
       const result = await this.wtfService.updateAcronym(data);
-      res.status(201).json(result);
+      res.status(200).json(result);
 
     } catch (error) {
       next(error);

@@ -1,4 +1,3 @@
-import { num } from 'envalid';
 import { db } from '../db/database';
 import { WTF } from '../interfaces/wtf.interface';
 
@@ -49,7 +48,6 @@ class WTFService {
   public async searchAcronym(from: number, limit: number, search: string): Promise<any> {
     const numberRows = await db.get(`SELECT count(1) FROM wtf WHERE acronym LIKE '%${search}%'`);
     const list = await db.all(`SELECT * FROM wtf WHERE acronym LIKE '%${search}%' LIMIT ${limit} OFFSET ${from}`);
-    console.log(numberRows)
     const more = numberRows[Object.keys(numberRows)[0]] > (from + limit) ? true : false;
     return {
       list,

@@ -2,27 +2,31 @@
 
 ###
 # baseURL
-@baseURL = http://localhost:3000/wtf
+@baseURL = http://localhost:3000
+
+###
+# Random acronyms of given number
+GET {{baseURL}}/auth/getToken/10X
 
 
 ###
 # Random acronyms of given number
-GET {{baseURL}}/acronym/test
+GET {{baseURL}}/wtf/acronym/10X
 
 
 ###
 # Random acronyms of given number
-GET {{baseURL}}/random/12
+GET {{baseURL}}/wtf/random/12
 
 
 ###
 # Search acronyms with pagination query
-GET {{baseURL}}/acronym?from=340&limit=10&search=A
+GET {{baseURL}}/wtf/acronym?from=340&limit=10&search=A
 
 
 ###
 # Add new acronym
-POST {{baseURL}}/acronym
+POST {{baseURL}}/wtf/acronym
 Content-Type: application/json
 
 {
@@ -33,14 +37,15 @@ Content-Type: application/json
 
 ###
 # Update definition of given acronym
-PUT {{baseURL}}/acronym/test
+PUT {{baseURL}}/wtf/acronym/10X
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3JvbnltIjoiMTBYIiwiaWF0IjoxNjAyODEzNjYyLCJleHAiOjE2MDI4MTcyNjJ9.heMCJHCfoddfY4vXCEEX5XYWfvrakPwgNM0PfMa-YvY
 
 {
-	"definition": "updateTest"
+	"definition": "Update testing"
 }
 
 
 ###
-# Update definition of given acronym
-DELETE  {{baseURL}}/acronym/test
+# Update definition wtf/of given acronym
+DELETE  {{baseURL}}/wtf/acronym/test
